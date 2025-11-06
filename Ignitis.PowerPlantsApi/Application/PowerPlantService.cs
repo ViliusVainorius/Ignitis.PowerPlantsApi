@@ -1,30 +1,42 @@
 ﻿using Ignitis.PowerPlantsApi.Data;
 using Ignitis.PowerPlantsApi.Domain.Models;
 using Ignitis.PowerPlantsApi.Domain.Models.DTOs;
+using Ignitis.PowerPlantsApi.Extensions;
 using Microsoft.EntityFrameworkCore;
-using System.ComponentModel.DataAnnotations;
 
 namespace Ignitis.PowerPlantsApi.Application;
 
 public class PowerPlantService(IgnitisDbContext context) : IPowerPlantService
 {
-    public async Task<IEnumerable<PowerPlant>> GetAsync(string? owner)
+    public IQueryable<PowerPlant> query = context.PowerPlants.AsQueryable();
+
+    public async Task<IEnumerable<PowerPlant>> GetAsync(string? owner, int page = 1, int pageSize = 10)
     {
-        var query = context.PowerPlants.AsQueryable();
+        var powerPlants = await query.ToListAsync();
 
         if (!string.IsNullOrWhiteSpace(owner))
-            query = query.Where(p => p.Owner.ToLower().Contains(owner.ToLower()));
+        {
+            var filter = owner.NormalizeWithoutAccents().ToLower();
 
-        return await query.ToListAsync();
+            powerPlants = powerPlants
+                .Where(p => p.Owner.NormalizeWithoutAccents().ToLower().Contains(filter))
+                .ToList();
+        }
+
+        return powerPlants
+            .Skip((page - 1) * pageSize)
+            .Take(pageSize)
+            .ToList();
     }
 
     public async Task<PowerPlant> CreateAsync(PowerPlantDto dto)
     {
-        throw new NotImplementedException();
-    }
+        var newPowerPlant = dto.ToEntity();
 
-    public async Task<ValidationResult> ValidateAsync(PowerPlantDto dto)
-    {
-        throw new NotImplementedException();
+        context.PowerPlants.Add(newPowerPlant);
+
+        await context.SaveChangesAsync();
+
+        return newPowerPlant;
     }
 }

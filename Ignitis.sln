@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36623.8 d17.14
+VisualStudioVersion = 17.14.36623.8
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ignitis.PowerPlantsApi.Domain", "Ignitis.PowerPlantsApi.Domain\Ignitis.PowerPlantsApi.Domain.csproj", "{6EFD7E20-3274-419D-A75E-118219D851D2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ignitis.PowerPlantsApi.Data", "Ignitis.PowerPlantsApi.Data\Ignitis.PowerPlantsApi.Data.csproj", "{CD6AE9AF-1EA2-4DB4-9DA3-4DE370F4A64A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ignitis.PowerPlantsApi.Unit.Tests", "Ignitis.PowerPlantsApi.Unit.Tests\Ignitis.PowerPlantsApi.Unit.Tests.csproj", "{B7E38858-F3FD-4567-8A33-FB32D0F33CEF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +33,10 @@ Global
 		{CD6AE9AF-1EA2-4DB4-9DA3-4DE370F4A64A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD6AE9AF-1EA2-4DB4-9DA3-4DE370F4A64A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD6AE9AF-1EA2-4DB4-9DA3-4DE370F4A64A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7E38858-F3FD-4567-8A33-FB32D0F33CEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7E38858-F3FD-4567-8A33-FB32D0F33CEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7E38858-F3FD-4567-8A33-FB32D0F33CEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7E38858-F3FD-4567-8A33-FB32D0F33CEF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -39,6 +45,7 @@ Global
 		{2C491C2A-3862-46BE-AFB9-B84D40FDD96B} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{6EFD7E20-3274-419D-A75E-118219D851D2} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{CD6AE9AF-1EA2-4DB4-9DA3-4DE370F4A64A} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{B7E38858-F3FD-4567-8A33-FB32D0F33CEF} = {B79B14F6-A4C0-431E-B8B5-602D05E102A4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {45DF603F-2C57-4688-9D5B-DAAE5ABC4B95}
